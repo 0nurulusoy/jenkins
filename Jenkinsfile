@@ -1,21 +1,10 @@
+/* Requires the Docker Pipeline plugin */
 pipeline {
-    agent any
+    agent { docker { image 'python:3.10.7-alpine' } }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                git 'https://github.com/your/repo.git'
-                sh 'mvn package'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'docker build -t myapp .'
-                sh 'docker run -d -p 8080:8080 myapp'
+                sh 'python --version'
             }
         }
     }
