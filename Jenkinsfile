@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker pull hello-world:latest'
-                sh 'docker tag hello-world:latest my-image:latest'
+                sh 'docker pull tryingtobecoder/docker-hello-world:latest'
+                sh 'docker tag tryingtobecoder/docker-hello-world:latest my-image:latest'
             }
         }
         stage('Run') {
             steps {
-                sh 'docker run hello-world:latest'
+                sh 'docker run my-image:latest'
             }
         }
     }
