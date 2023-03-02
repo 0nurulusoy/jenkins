@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Run') {
             steps {
-                sh 'docker run -d --network host tryingtobecoder/docker-hello-world:latest'
+                sh 'docker run -d tryingtobecoder/docker-hello-world:latest'
             }
         }
     }
